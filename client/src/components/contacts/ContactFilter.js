@@ -8,16 +8,16 @@ const ContactFilter = () => {
   const text = useRef('');
   //   let text = '';
 
-  useEffect(() => {
+  /*   useEffect(() => {
     if (filtered === null) {
       text.current = ''; // text.current instead of text.current.value
       //   text = '';
     }
   });
-
+ */
   const onChange = (e) => {
-    if (text.current !== '') {
-      // if (e.target.value !== '') {
+    // if (text.current !== '') {
+    if (e.target.value !== '') {
       filterContacts(e.target.value);
     } else {
       clearFilter();
@@ -25,7 +25,7 @@ const ContactFilter = () => {
   };
 
   return (
-    <form>
+    <form onSubmit={(e) => e.preventDefault()}>
       <input
         ref={text}
         type="text"
